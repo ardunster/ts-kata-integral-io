@@ -1,1 +1,7 @@
-export function hello(): string { return 'hola' }
+export class Timeline {
+  //
+}
+
+export class Wall {
+  //
+}
