@@ -1,4 +1,19 @@
-import { Timeline } from './kata'
+import { Post, Timeline } from './kata'
+
+describe('Post', () => {
+  let post: Post
+  beforeAll(() => {
+    post = new Post()
+  })
+
+  it('should be defined', () => {
+    expect(post).toBeDefined()
+  })
+
+  // it('should contain a user name field', () => {
+  //   expect(post.username).toBeDefined()
+  // })
+})
 
 describe('Timeline', () => {
   let timeline: Timeline
