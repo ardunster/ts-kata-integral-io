@@ -1,4 +1,4 @@
-import { Post, Timeline } from './kata'
+import { Post, Timeline, Wall } from './kata'
 
 describe('Post', () => {
   it('should be defined', () => {
@@ -34,5 +34,11 @@ describe('Timeline', () => {
       const timeline: Timeline = new Timeline()
       expect(timeline.retrieve).toBeDefined()
     })
+  })
+})
+
+describe('Wall', () => {
+  it('should be defined', () => {
+    expect(Wall).toBeDefined()
   })
 })
