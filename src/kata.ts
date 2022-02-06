@@ -1,4 +1,10 @@
-export class Post {}
+export class Post {
+  constructor (username: string) {
+    this.username = username
+  }
+
+  username: string
+}
 
 export class Timeline {
   /** Add a post to the user's timeline. */
