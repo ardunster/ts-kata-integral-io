@@ -1,0 +1,19 @@
+{
+  "name": "ts-kata",
+  "version": "1.0.0",
+  "description": "Basic setup to practice code katas in Typescript",
+  "main": "src/kata.ts",
+  "scripts": {
+    "build": "npx tsc",
+    "test": "npx jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "jest": "^27.5.0",
+    "ts-jest": "^27.1.3",
+    "ts-standard": "^11.0.0",
+    "typescript": "^4.5.5"
+  }
+}
