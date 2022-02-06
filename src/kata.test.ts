@@ -15,6 +15,11 @@ describe('Post', () => {
     const testPost2 = new Post('some other user')
     expect(testPost2.username).toEqual('some other user')
   })
+
+  it('should contain a body field as assigned in the constructor', () => {
+    const post = new Post('testuser', 'some contents')
+    expect(post.body).toBeDefined()
+  })
 })
 
 describe('Timeline', () => {

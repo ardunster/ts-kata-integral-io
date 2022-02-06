@@ -1,5 +1,7 @@
 export class Post {
   constructor (username: string) {
+    // Realistically, this should actually be a verified value and probably a
+    // data type other than a string, but for the purposes of the kata a string works.
     this.username = username
   }
 
