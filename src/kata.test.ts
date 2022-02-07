@@ -169,7 +169,7 @@ describe('Timeline', () => {
       ])
     })
 
-    xit('should return formatted posts including relative time if retrieved by a different user', () => {
+    it('should return formatted posts including relative time if retrieved by a different user', () => {
       const timeline: Timeline = new Timeline('Bob')
       expect(timeline.retrieve('Bob')).toEqual([])
 

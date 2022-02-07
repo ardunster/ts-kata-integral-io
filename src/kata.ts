@@ -4,10 +4,10 @@
 export function formatTimeDiff (input: Date): string {
   const now: Date = new Date()
   const difference: number = now.getTime() - input.getTime()
-  if (difference <= 60000) {
+  if (difference < 60000) {
     const seconds = Math.floor(difference / 1000)
     return `${seconds} seconds ago`
-  } else if (difference <= 3600000) {
+  } else if (difference < 3600000) {
     const hours = Math.floor(difference / 60000)
     return `${hours} minutes ago`
   }
@@ -26,6 +26,8 @@ export function formatPost (
     return post.body
   } else if (addUser && !addTime) {
     return `${post.username} - ${post.body}`
+  } else if (addTime && !addUser) {
+    return `${post.body} (${formatTimeDiff(post.timestamp)})`
   } else {
     return ''
   }
@@ -71,13 +73,14 @@ export class Timeline {
   }
 
   /** Retrieve all posts from user's timeline. */
-  retrieve (currentuser: string): string[] {
+  retrieve (currentUser: string): string[] {
     const result: string[] = []
+    const addTime: boolean = currentUser !== this.username
 
     this.posts.sort(sortPosts)
 
     for (const post of this.posts) {
-      result.push(formatPost(post, false, false))
+      result.push(formatPost(post, addTime, false))
     }
     return result
   }
