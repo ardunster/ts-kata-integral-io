@@ -1,6 +1,6 @@
 /** Formats a post with username and relative date as appropriate. */
 export function formatPost (
-  post: Post,
+  post: IPost,
   addTime: boolean,
   addUser: boolean
 ): string {
@@ -22,13 +22,11 @@ export function formatPost (
 /** A single Post object that exists on a user's timeline. Contains a author's username,
  * a post body, and the datestamp of creation.
  */
-export class Post {
+export interface IPost {
   // Realistically, username should actually be a verified value and probably a
   // data type other than a string, but for the purposes of the kata a string works.
-  constructor (public readonly username: string, public readonly body: string) {
-    this.timestamp = new Date()
-  }
-
+  username: string
+  body: string
   timestamp: Date
 }
 
@@ -38,11 +36,15 @@ export class Post {
 export class Timeline {
   constructor (public readonly username: string) {}
 
-  posts: Post[] = []
+  posts: IPost[] = []
 
   /** Add a post to the user's timeline. */
   publish (input: string): void {
-    this.posts.push(new Post(this.username, input))
+    this.posts.push({
+      username: this.username,
+      body: input,
+      timestamp: new Date()
+    })
   }
 
   /** Retrieve all posts from user's timeline. */

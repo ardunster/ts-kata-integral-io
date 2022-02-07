@@ -1,38 +1,12 @@
-import { formatPost, Post, sortPosts, Timeline, Wall } from './kata'
+import {
+  formatPost,
+  IPost,
+  // sortPosts,
+  Timeline,
+  Wall
+} from './kata'
 
 const mockDate: Date = new Date('2022-02-06 12:34:56')
-
-describe('Post', () => {
-  beforeAll(() => {
-    jest.useFakeTimers('modern')
-    jest.setSystemTime(mockDate)
-  })
-  afterAll(() => {
-    jest.useRealTimers()
-  })
-
-  it('should be defined', () => {
-    expect(Post).toBeDefined()
-  })
-
-  it('should contain a user name field as assigned in the constructor', () => {
-    const post = new Post('testuser', 'some contents')
-    expect(post.username).toBeDefined()
-    expect(post.username).toEqual('testuser')
-  })
-
-  it('should contain a body field as assigned in the constructor', () => {
-    const post = new Post('testuser', 'some contents')
-    expect(post.body).toBeDefined()
-    expect(post.body).toEqual('some contents')
-  })
-
-  it('should contain a timestamp field from when it is created', () => {
-    const post = new Post('testuser', 'some contents')
-    expect(post.timestamp).toBeDefined()
-    expect(post.timestamp).toEqual(mockDate)
-  })
-})
 
 describe('Timeline', () => {
   beforeAll(() => {
@@ -109,21 +83,23 @@ describe('Wall', () => {
 })
 
 describe('formatPost', () => {
+  const testPost: IPost = {
+    username: 'Alice',
+    body: 'I love the weather today.',
+    timestamp: mockDate
+  }
+
   it('should be defined', () => {
     expect(formatPost).toBeDefined()
   })
 
   it('should return just the body of the Post if addTime and addUser are false', () => {
-    const testPost: Post = new Post('Alice', 'I love the weather today.')
-
     expect(formatPost(testPost, false, false)).toEqual(
       'I love the weather today.'
     )
   })
 
   it("should include the Post's author if addUser is true", () => {
-    const testPost: Post = new Post('Alice', 'I love the weather today.')
-
     expect(formatPost(testPost, false, true)).toEqual(
       'Alice - I love the weather today.'
     )
@@ -132,10 +108,8 @@ describe('formatPost', () => {
 
 describe('sortPosts', () => {
   it('should be defined', () => {
-    expect(sortPosts).toBeDefined()
+    // expect(sortPosts).toBeDefined()
   })
 
-  it('should return 1 if a is newer than b', () => {
-    
-  });
+  it('should return 1 if a is newer than b', () => {})
 })
