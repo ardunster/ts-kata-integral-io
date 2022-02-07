@@ -1,5 +1,15 @@
 /** Formats a post with username and relative date as appropriate. */
-export function formatPost (post: Post, addTime: boolean, addUser: boolean): string {}
+export function formatPost (
+  post: Post,
+  addTime: boolean,
+  addUser: boolean
+): string {
+  if (!addTime && !addUser) {
+    return post.body
+  } else {
+    return ''
+  }
+}
 
 /** A single Post object that exists on a user's timeline. Contains a author's username,
  * a post body, and the datestamp of creation.
