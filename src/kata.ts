@@ -25,7 +25,7 @@ export class Timeline {
   }
 
   /** Retrieve all posts from user's timeline. */
-  retrieve (): void {}
+  retrieve (): string[] {}
 }
 
 /** Contains owner's username set at creation, owner's Timeline set at creation,

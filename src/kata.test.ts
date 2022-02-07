@@ -81,6 +81,11 @@ describe('Timeline', () => {
       const timeline: Timeline = new Timeline('Alice')
       expect(timeline.retrieve).toBeDefined()
     })
+
+    it('should return a formatted array of previously published posts for display', () => {
+      const timeline: Timeline = new Timeline('Alice')
+      expect(timeline.retrieve()).toEqual([])
+    })
   })
 })
 
