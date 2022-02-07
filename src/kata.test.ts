@@ -1,4 +1,4 @@
-import { formatPost, Post, Timeline, Wall } from './kata'
+import { formatPost, Post, sortPosts, Timeline, Wall } from './kata'
 
 const mockDate: Date = new Date('2022-02-06 12:34:56')
 
@@ -109,7 +109,9 @@ describe('Wall', () => {
 })
 
 describe('formatPost', () => {
-  expect(formatPost).toBeDefined()
+  it('should be defined', () => {
+    expect(formatPost).toBeDefined()
+  })
 
   it('should return just the body of the Post if addTime and addUser are false', () => {
     const testPost: Post = new Post('Alice', 'I love the weather today.')
@@ -126,4 +128,14 @@ describe('formatPost', () => {
       'Alice - I love the weather today.'
     )
   })
+})
+
+describe('sortPosts', () => {
+  it('should be defined', () => {
+    expect(sortPosts).toBeDefined()
+  })
+
+  it('should return 1 if a is newer than b', () => {
+    
+  });
 })
