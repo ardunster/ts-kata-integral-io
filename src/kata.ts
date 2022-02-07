@@ -9,6 +9,8 @@ export class Post {
 }
 
 export class Timeline {
+  constructor (public readonly username: string) {}
+
   /** Add a post to the user's timeline. */
   publish (): void {}
 

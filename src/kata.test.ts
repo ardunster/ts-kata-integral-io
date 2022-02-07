@@ -39,22 +39,22 @@ describe('Timeline', () => {
     expect(Timeline).toBeDefined()
   })
 
-  // it('should contain a username as assigned on construction', () => {
-  //   const timeline = new Timeline('Alice')
-  //   expect(timeline.username).toBeDefined()
-  //   expect(timeline.username).toEqual('Alice')
-  // })
+  it('should contain a username as assigned on construction', () => {
+    const timeline = new Timeline('Alice')
+    expect(timeline.username).toBeDefined()
+    expect(timeline.username).toEqual('Alice')
+  })
 
   describe('publish', () => {
     it('should be defined', () => {
-      const timeline: Timeline = new Timeline()
+      const timeline: Timeline = new Timeline('Alice')
       expect(timeline.publish).toBeDefined()
     })
   })
 
   describe('retrieve', () => {
     it('should be defined', () => {
-      const timeline: Timeline = new Timeline()
+      const timeline: Timeline = new Timeline('Alice')
       expect(timeline.retrieve).toBeDefined()
     })
   })
