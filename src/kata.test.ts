@@ -118,4 +118,12 @@ describe('formatPost', () => {
       'I love the weather today.'
     )
   })
+
+  it("should include the Post's author if addUser is true", () => {
+    const testPost: Post = new Post('Alice', 'I love the weather today.')
+
+    expect(formatPost(testPost, false, true)).toEqual(
+      'Alice - I love the weather today.'
+    )
+  })
 })
