@@ -1,14 +1,10 @@
 export class Post {
-  constructor (username: string, body: string) {
-    // Realistically, this should actually be a verified value and probably a
-    // data type other than a string, but for the purposes of the kata a string works.
-    this.username = username
-    this.body = body
+  // Realistically, username should actually be a verified value and probably a
+  // data type other than a string, but for the purposes of the kata a string works.
+  constructor (public readonly username: string, public readonly body: string) {
     this.timestamp = new Date()
   }
 
-  username: string
-  body: string
   timestamp: Date
 }
 
