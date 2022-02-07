@@ -78,8 +78,22 @@ describe('sortPosts', () => {
 })
 
 describe('formatTimeDiff', () => {
+  beforeAll(() => {
+    jest.useFakeTimers('modern')
+    jest.setSystemTime(mockDate)
+  })
+  afterAll(() => {
+    jest.useRealTimers()
+  })
+
   it('should be defined', () => {
     expect(formatTimeDiff).toBeDefined()
+  })
+
+  it('should return string of time in seconds for differences under a minute', () => {
+    const tenSecondsAgo = new Date(mockDate.getTime() - 10000)
+
+    expect(formatTimeDiff(tenSecondsAgo)).toEqual('10 seconds ago')
   })
 })
 
