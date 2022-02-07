@@ -1,7 +1,13 @@
-/** Uses current time and input time to create a string representing the time 
+/** Uses current time and input time to create a string representing the time
  * difference.
  */
 export function formatTimeDiff (input: Date): string {
+  const now: Date = new Date()
+  const difference: number = now.getTime() - input.getTime()
+  if (difference <= 60000) {
+    const seconds = Math.floor(difference / 1000)
+    return `${seconds} seconds ago`
+  }
   return ''
 }
 
