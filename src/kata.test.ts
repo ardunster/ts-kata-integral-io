@@ -1,24 +1,36 @@
 import { Post, Timeline, Wall } from './kata'
 
+const mockDate: Date = new Date('2022-02-06 12:34:56')
+
 describe('Post', () => {
+  beforeAll(() => {
+    jest.useFakeTimers('modern')
+    jest.setSystemTime(mockDate)
+  })
+  afterAll(() => {
+    jest.useRealTimers()
+  })
+
   it('should be defined', () => {
     expect(Post).toBeDefined()
   })
 
   it('should contain a user name field as assigned in the constructor', () => {
-    const post = new Post('testuser')
+    const post = new Post('testuser', 'some contents')
     expect(post.username).toBeDefined()
-
-    const testPost1 = new Post('testuser1')
-    expect(testPost1.username).toEqual('testuser1')
-
-    const testPost2 = new Post('some other user')
-    expect(testPost2.username).toEqual('some other user')
+    expect(post.username).toEqual('testuser')
   })
 
   it('should contain a body field as assigned in the constructor', () => {
     const post = new Post('testuser', 'some contents')
     expect(post.body).toBeDefined()
+    expect(post.body).toEqual('some contents')
+  })
+
+  it('should contain a timestamp field from when it is created', () => {
+    const post = new Post('testuser', 'some contents')
+    expect(post.timestamp).toBeDefined()
+    expect(post.timestamp).toEqual(mockDate)
   })
 })
 
