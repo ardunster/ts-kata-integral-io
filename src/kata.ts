@@ -7,7 +7,12 @@ export function formatTimeDiff (input: Date): string {
   if (difference <= 60000) {
     const seconds = Math.floor(difference / 1000)
     return `${seconds} seconds ago`
+  } else if (difference <= 3600000) {
+    const hours = Math.floor(difference / 60000)
+    return `${hours} minutes ago`
   }
+  // Todo: hours, days, years
+  // Todo: fix plurals.
   return ''
 }
 

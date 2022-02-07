@@ -182,7 +182,7 @@ describe('Timeline', () => {
       jest.setSystemTime(mockDate)
 
       expect(timeline.retrieve('Alice')).toEqual([
-        'Good game though. (1 minute ago)',
+        'Good game though. (1 minutes ago)',
         'Darn! We lost! (2 minutes ago)'
       ])
     })
