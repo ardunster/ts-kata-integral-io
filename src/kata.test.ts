@@ -1,4 +1,4 @@
-import { Post, Timeline, Wall } from './kata'
+import { formatPost, Post, Timeline, Wall } from './kata'
 
 const mockDate: Date = new Date('2022-02-06 12:34:56')
 
@@ -106,4 +106,8 @@ describe('Wall', () => {
   it('should be defined', () => {
     expect(Wall).toBeDefined()
   })
+})
+
+describe('formatPost', () => {
+  expect(formatPost).toBeDefined()
 })
