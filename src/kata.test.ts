@@ -1,10 +1,4 @@
-import {
-  formatPost,
-  IPost,
-  // sortPosts,
-  Timeline,
-  Wall
-} from './kata'
+import { formatPost, IPost, sortPosts, Timeline, Wall } from './kata'
 
 const mockDate: Date = new Date('2022-02-06 12:34:56')
 
@@ -107,9 +101,45 @@ describe('formatPost', () => {
 })
 
 describe('sortPosts', () => {
+  const earlierPost: IPost = {
+    username: 'Steve',
+    body: 'Pistachios',
+    timestamp: new Date('2022-02-06 12:34:56')
+  }
+
+  const laterPost: IPost = {
+    username: 'George',
+    body: 'Pine nuts',
+    timestamp: new Date('2022-02-07 12:34:56')
+  }
+
+  const evenlaterPost: IPost = {
+    username: 'George',
+    body: 'Pine nuts',
+    timestamp: new Date('2022-02-08 12:34:56')
+  }
+
   it('should be defined', () => {
-    // expect(sortPosts).toBeDefined()
+    expect(sortPosts).toBeDefined()
   })
 
-  it('should return 1 if a is newer than b', () => {})
+  it('should return 1 if a is newer than b', () => {
+    expect(sortPosts(earlierPost, laterPost)).toEqual(1)
+  })
+
+  it('should return -1 if b is newer than a', () => {
+    expect(sortPosts(laterPost, earlierPost)).toEqual(-1)
+  })
+
+  it('should return 0 if both have the same date', () => {
+    expect(sortPosts(earlierPost, earlierPost)).toEqual(0)
+  })
+
+  it('should properly sort an array of posts with different dates when used with array.sort', () => {
+    const postArray = [laterPost, earlierPost, evenlaterPost]
+
+    postArray.sort(sortPosts)
+
+    expect(postArray).toEqual([evenlaterPost, laterPost, earlierPost])
+  })
 })

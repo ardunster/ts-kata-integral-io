@@ -13,11 +13,16 @@ export function formatPost (
   }
 }
 
-// export function sortPosts (a: Post, b: Post) {
-//   if (a.timestamp > b.timestamp) {
-//     return 1
-//   } else if (a.timestamp < b.timestamp) {return -1} else {return 0}
-// }
+/** Sort post objects according to date stamps, most recent first. */
+export function sortPosts (a: IPost, b: IPost): number {
+  if (a.timestamp > b.timestamp) {
+    return -1
+  } else if (a.timestamp < b.timestamp) {
+    return 1
+  } else {
+    return 0
+  }
+}
 
 /** A single Post object that exists on a user's timeline. Contains a author's username,
  * a post body, and the datestamp of creation.
