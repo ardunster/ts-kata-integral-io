@@ -110,4 +110,12 @@ describe('Wall', () => {
 
 describe('formatPost', () => {
   expect(formatPost).toBeDefined()
+
+  it('should return just the body of the Post if addTime and addUser are false', () => {
+    const testPost: Post = new Post('Alice', 'I love the weather today.')
+
+    expect(formatPost(testPost, false, false)).toEqual(
+      'I love the weather today.'
+    )
+  })
 })
