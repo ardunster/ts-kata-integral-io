@@ -82,9 +82,22 @@ describe('Timeline', () => {
       expect(timeline.retrieve).toBeDefined()
     })
 
-    it('should return a formatted array of previously published posts for display', () => {
+    it('should return a formatted chronological array of previously published posts for display', () => {
       const timeline: Timeline = new Timeline('Alice')
-      expect(timeline.retrieve()).toEqual([])
+      expect(timeline.retrieve('Alice')).toEqual([])
+
+      jest.setSystemTime(new Date(mockDate.getTime() - 86400000))
+      timeline.publish("It's too hot today :( ")
+
+      jest.setSystemTime(new Date(mockDate.getTime() - 5000))
+      timeline.publish('I love the weather today.')
+
+      jest.setSystemTime(mockDate)
+
+      expect(timeline.retrieve('Alice')).toEqual([
+        'I love the weather today.',
+        "It's too hot today :( "
+      ])
     })
   })
 })

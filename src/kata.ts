@@ -25,7 +25,7 @@ export class Timeline {
   }
 
   /** Retrieve all posts from user's timeline. */
-  retrieve (): string[] {
+  retrieve (currentuser: string): string[] {
     return []
   }
 }
