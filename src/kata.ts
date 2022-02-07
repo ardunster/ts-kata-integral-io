@@ -6,6 +6,8 @@ export function formatPost (
 ): string {
   if (!addTime && !addUser) {
     return post.body
+  } else if (addUser && !addTime) {
+    return `${post.username} - ${post.body}`
   } else {
     return ''
   }
