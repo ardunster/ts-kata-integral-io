@@ -95,6 +95,12 @@ describe('formatTimeDiff', () => {
 
     expect(formatTimeDiff(tenSecondsAgo)).toEqual('10 seconds ago')
   })
+
+  it('should return string of time in minutes for differences under an hour', () => {
+    const tenSecondsAgo = new Date(mockDate.getTime() - 300000)
+
+    expect(formatTimeDiff(tenSecondsAgo)).toEqual('5 minutes ago')
+  })
 })
 
 describe('Timeline', () => {
