@@ -45,6 +45,11 @@ describe('Timeline', () => {
     expect(timeline.username).toEqual('Alice')
   })
 
+  it('should contain an array of Posts', () => {
+    const timeline = new Timeline('Alice')
+    expect(timeline.posts).toBeDefined()
+  })
+
   describe('publish', () => {
     it('should be defined', () => {
       const timeline: Timeline = new Timeline('Alice')
