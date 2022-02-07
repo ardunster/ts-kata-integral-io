@@ -20,7 +20,9 @@ export class Timeline {
   posts: Post[] = []
 
   /** Add a post to the user's timeline. */
-  publish (): void {}
+  publish (input: string): void {
+    this.posts.push(new Post(this.username, input))
+  }
 
   /** Retrieve all posts from user's timeline. */
   retrieve (): void {}

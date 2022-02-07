@@ -35,6 +35,14 @@ describe('Post', () => {
 })
 
 describe('Timeline', () => {
+  beforeAll(() => {
+    jest.useFakeTimers('modern')
+    jest.setSystemTime(mockDate)
+  })
+  afterAll(() => {
+    jest.useRealTimers()
+  })
+
   it('should be defined', () => {
     expect(Timeline).toBeDefined()
   })
@@ -61,7 +69,7 @@ describe('Timeline', () => {
       const timeline: Timeline = new Timeline('Alice')
       timeline.publish('I love the weather today.')
 
-      expect(timeline.posts.length).toEqual([1])
+      expect(timeline.posts.length).toEqual(1)
       expect(timeline.posts[0].username).toEqual('Alice')
       expect(timeline.posts[0].body).toEqual('I love the weather today.')
       expect(timeline.posts[0].timestamp).toEqual(mockDate)
