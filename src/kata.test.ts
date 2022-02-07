@@ -48,12 +48,23 @@ describe('Timeline', () => {
   it('should contain an array of Posts', () => {
     const timeline = new Timeline('Alice')
     expect(timeline.posts).toBeDefined()
+    expect(timeline.posts).toEqual([])
   })
 
   describe('publish', () => {
     it('should be defined', () => {
       const timeline: Timeline = new Timeline('Alice')
       expect(timeline.publish).toBeDefined()
+    })
+
+    it("should add a post to the user's Timeline with current time, username, and body", () => {
+      const timeline: Timeline = new Timeline('Alice')
+      timeline.publish('I love the weather today.')
+
+      expect(timeline.posts.length).toEqual([1])
+      expect(timeline.posts[0].username).toEqual('Alice')
+      expect(timeline.posts[0].body).toEqual('I love the weather today.')
+      expect(timeline.posts[0].timestamp).toEqual(mockDate)
     })
   })
 
