@@ -1,3 +1,10 @@
+/** Uses current time and input time to create a string representing the time 
+ * difference.
+ */
+export function formatTimeDiff (input: Date): string {
+  return ''
+}
+
 /** Formats a post with username and relative date as appropriate. */
 export function formatPost (
   post: IPost,

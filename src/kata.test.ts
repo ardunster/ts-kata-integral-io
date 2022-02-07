@@ -1,4 +1,11 @@
-import { formatPost, IPost, sortPosts, Timeline, Wall } from './kata'
+import {
+  formatPost,
+  formatTimeDiff,
+  IPost,
+  sortPosts,
+  Timeline,
+  Wall
+} from './kata'
 
 const mockDate: Date = new Date('2022-02-06 12:34:56')
 
@@ -70,6 +77,12 @@ describe('sortPosts', () => {
   })
 })
 
+describe('formatTimeDiff', () => {
+  it('should be defined', () => {
+    expect(formatTimeDiff).toBeDefined()
+  })
+})
+
 describe('Timeline', () => {
   beforeAll(() => {
     jest.useFakeTimers('modern')
@@ -136,7 +149,7 @@ describe('Timeline', () => {
       ])
     })
 
-    it('should return formatted posts including relative time if retrieved by a different user', () => {
+    xit('should return formatted posts including relative time if retrieved by a different user', () => {
       const timeline: Timeline = new Timeline('Bob')
       expect(timeline.retrieve('Bob')).toEqual([])
 
