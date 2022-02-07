@@ -54,7 +54,14 @@ export class Timeline {
 
   /** Retrieve all posts from user's timeline. */
   retrieve (currentuser: string): string[] {
-    return []
+    const result: string[] = []
+
+    this.posts.sort(sortPosts)
+
+    for (const post of this.posts) {
+      result.push(formatPost(post, false, false))
+    }
+    return result
   }
 }
 
