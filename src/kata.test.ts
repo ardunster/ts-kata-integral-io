@@ -135,6 +135,24 @@ describe('Timeline', () => {
         "It's too hot today :( "
       ])
     })
+
+    it('should return formatted posts including relative time if retrieved by a different user', () => {
+      const timeline: Timeline = new Timeline('Bob')
+      expect(timeline.retrieve('Bob')).toEqual([])
+
+      jest.setSystemTime(new Date(mockDate.getTime() - 60000))
+      timeline.publish('Good game though.')
+
+      jest.setSystemTime(new Date(mockDate.getTime() - 120000))
+      timeline.publish('Darn! We lost!')
+
+      jest.setSystemTime(mockDate)
+
+      expect(timeline.retrieve('Alice')).toEqual([
+        'Good game though. (1 minute ago)',
+        'Darn! We lost! (2 minutes ago)'
+      ])
+    })
   })
 })
 
