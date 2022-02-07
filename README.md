@@ -2,13 +2,15 @@
 
 This is a nearly minimal setup for coding a kata in Typescript. It uses NPM as a package manager, Jest as the test framework and has the Typescript version of StandardJS installed for formatting and linting.
 
+This fork contains code and tests for the kata described in katadetails.md.
+
 ## Installation
 
 These installation instructions assume that you already have git and a current version of NPM installed.
 
-Clone the repository using git: <!-- Insert proper git clone command here -->
+Clone the repository with the git command `git clone https://github.com/ardunster/ts-kata-integral-io.git`.
 
-Then install with `npm install`.
+Then install with `npm install` inside the cloned directory.
 
 ## Adding code and tests
 
